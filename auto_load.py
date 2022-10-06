@@ -25,11 +25,11 @@ def init():
 
 def register():
     for cls in ordered_classes:
-        print("register:" +str(cls))
+        # print("register:" +str(cls))
         bpy.utils.register_class(cls)
 
     for module in modules:
-        print("register module:" +str(module))
+        # print("register module:" +str(module))
         if module.__name__ == __name__:
             continue
         if hasattr(module, "register"):
@@ -46,8 +46,10 @@ def unregister():
             module.unregister()
 
 def reload():
-    for cls in ordered_classes:
-        importlib.reload(cls)
+    global modules
+    for mod in modules:
+        # print("reloading"+ str(mod))
+        importlib.reload(mod)
 
 # Import modules
 #################################################
