@@ -1,8 +1,5 @@
 from bpy.types import PropertyGroup, TextSequence
-from bpy.props import BoolProperty, PointerProperty, StringProperty, FloatProperty, IntProperty
-# やること:
-# シーケンサ上に表示する音声入力設定
-# 字幕の設定()
+from bpy.props import BoolProperty, PointerProperty, StringProperty, FloatProperty, IntProperty,FloatVectorProperty
 
 class subtitleConfig(PropertyGroup):
   """ttsの字幕設定を持つクラス"""
@@ -11,3 +8,7 @@ class subtitleConfig(PropertyGroup):
 
   font:StringProperty()
   size:FloatProperty()
+  # フォント色
+  color:FloatVectorProperty(subtype="COLOR_GAMMA")
+  # 位置
+  position:FloatVectorProperty(size=2)

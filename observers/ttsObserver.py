@@ -1,9 +1,8 @@
 import time
 from bpy.types import Operator
 from watchdog.observers import Observer
-from  watchdog.events import FileSystemEventHandler
 
-class ttsObserver(FileSystemEventHandler):
+class ttsObserver():
   observer = Observer()
 
   def startObserver(isRecursive=True):
