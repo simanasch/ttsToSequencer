@@ -8,6 +8,7 @@ class ttsConfig(PropertyGroup):
   bl_label="ttsConfig"
 
   name:StringProperty()
+  fileNamePattern:StringProperty()
   channel:IntProperty(default=0)
   hasSubtitle:BoolProperty()
   
