@@ -25,9 +25,11 @@ def init():
 
 def register():
     for cls in ordered_classes:
+        print("register:" +str(cls))
         bpy.utils.register_class(cls)
 
     for module in modules:
+        print("register module:" +str(module))
         if module.__name__ == __name__:
             continue
         if hasattr(module, "register"):
@@ -55,7 +57,7 @@ def get_all_submodules(directory):
 
 def iter_submodules(path, package_name):
     for name in sorted(iter_submodule_names(path)):
-        yield importlib.reload(importlib.import_module("." + name, package_name))
+        yield importlib.import_module("." + name, package_name)
 
 def iter_submodule_names(path, root=""):
     for _, module_name, is_package in pkgutil.iter_modules([str(path)]):

@@ -32,19 +32,9 @@ bl_info = {
 }
 
 # "reload Script"でスクリプトを再読み込みした場合に関連ファイルを再読み込みする
-# if "bpy" in locals():
-#   import importlib
-#   reloadables = [
-#     # "layeredPsdMaterial",
-#     # "handler",
-#     # "classes",
-#     # "operator",
-#     # "ui"
-#   ]
-#   print("reloading modules:" + str(reloadables))
-#   for mod in reloadables:
-#     if mod in locals():
-#       importlib.reload(locals()[mod])
+if "bpy" in locals():
+  from . import auto_load
+  auto_load.reload()
 
 import bpy
 try:
@@ -66,7 +56,9 @@ auto_load.init()
 #
 def register():
   auto_load.register()
-  # bpy.types.Object.psd_settings = bpy.props.PointerProperty(type=psd_OT_Settings)
+  # from .classes.ttsConfig import subtitleConfig,ttsConfig
+  # bpy.types.Sequence.subtitleConfig = bpy.props.PointerProperty(type=subtitleConfig)
+  # bpy.types.Sequence.ttsConfig = bpy.props.PointerProperty(type=ttsConfig)
   # bpy.app.handlers.frame_change_post.append(onFrameChangePost)
   # bpy.types.VIEW3D_MT_image_add.append(menu_func_import)
 
