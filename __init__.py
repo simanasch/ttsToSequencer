@@ -56,11 +56,10 @@ auto_load.init()
 #
 def register():
   auto_load.register()
-  # from .classes.ttsConfig import subtitleConfig,ttsConfig
-  # bpy.types.Sequence.subtitleConfig = bpy.props.PointerProperty(type=subtitleConfig)
-  # bpy.types.Sequence.ttsConfig = bpy.props.PointerProperty(type=ttsConfig)
-  # bpy.app.handlers.frame_change_post.append(onFrameChangePost)
-  # bpy.types.VIEW3D_MT_image_add.append(menu_func_import)
+  from .classes.ttsConfig import ttsConfig
+  from .classes.libraryConfig import libraryConfig
+  bpy.types.Scene.ttsConfig = bpy.props.PointerProperty(type=ttsConfig)
+  bpy.types.Scene.libraryConfigs = bpy.props.CollectionProperty(type=libraryConfig)
 
 
 #
@@ -68,5 +67,4 @@ def register():
 # 
 def unregister():
   auto_load.unregister()
-  # bpy.app.handlers.frame_change_post.remove(onFrameChangePost)
-  # bpy.types.VIEW3D_MT_image_add.remove(menu_func_import)
+  del bpy.types.Scene.ttsConfig
