@@ -1,6 +1,7 @@
 import bpy
 from  watchdog.events import PatternMatchingEventHandler
 from ..operators.add_sound_to_sequence import addSoundToScene,getFileExtension
+from ..operators.add_subtitle_to_sequence import addSubtitleToScene
 class ttsFileCreatedEventHandler(PatternMatchingEventHandler):
   # クラス初期化
   def __init__(self, patterns):
@@ -14,4 +15,5 @@ class ttsFileCreatedEventHandler(PatternMatchingEventHandler):
       soundEffect = addSoundToScene(bpy.context, event.src_path)
     elif getFileExtension(event.src_path) == ".txt":
       # txtの場合、同名の.wavファイルがあったら字幕を追加する
+      addSubtitleToScene(bpy.context, event.src_path)
       pass
