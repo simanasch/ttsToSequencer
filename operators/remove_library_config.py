@@ -7,8 +7,9 @@ class TTSTOSEQUENCER_OT_removeLibraryConfig(Operator):
   bl_label="ttsライブラリ削除"
   bl_options = {'REGISTER', 'UNDO'}
 
-  index:IntProperty(default=0)
+  index:IntProperty(default=0,options = {'HIDDEN'})
 
   def execute(self, context):
+    print(self.index)
     context.scene.libraryConfigs.remove(self.index)
     return {'FINISHED'}

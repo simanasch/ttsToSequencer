@@ -2,9 +2,26 @@ from os import path
 from bpy.props import StringProperty,IntProperty
 from bpy.types import Operator
 
-def addSoundToScene(context, filePath, channel):
-  fileName=path.splitext( path.basename(filePath))[0]
-  return context.scene.sequence_editor.sequences.new_sound(fileName, filePath,channel,frame_start=context.scene.frame_current)
+def getFileName(filePath):
+  return path.splitext( path.basename(filePath))[0]
+
+def getFileExtension(filePath):
+  return path.splitext( path.basename(filePath))[1]
+
+def addSoundToScene(context, filePath):
+  fileName=getFileName(filePath)
+  result = None
+  print(fileName)
+  # ファイル名が"orig_"で始まる場合は除外
+  if (not fileName.startswith("orig_")):
+    # まだ追加してない場合は追加、ある場合はframe_endを取得
+    for config in context.scene.libraryConfigs:
+      if fileName.startswith(config.name):
+        seq = context.scene.sequence_editor.sequences.get(fileName)
+        if seq != None:
+          context.scene.sequence_editor.sequences.remove(seq)
+        result = context.scene.sequence_editor.sequences.new_sound(fileName, filePath,config.channel,frame_start=context.scene.frame_current)
+  return result
 
 class TTSTOSEQUENCER_OT_AddSoundToSequence(Operator):
   """サウンドをシーケンサに追加する"""

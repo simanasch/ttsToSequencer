@@ -1,4 +1,5 @@
 import bpy
+from ..operators.observer import TTSTOSEQUENCER_OT_observer
 
 # やること:シーケンサの画面のサイドバー上でフォルダ監視の切り替え、
 # Listで音声入力の設定をできるようにする
@@ -16,7 +17,11 @@ class TTSToSequencer_PT_UiPanel(bpy.types.Panel):
     ttsConfig = context.scene.ttsConfig
     scene = context.scene
     layout.prop(ttsConfig, "folder",text="音声保存先フォルダ")
-    layout.prop(ttsConfig, "isObserverRunning",text="フォルダ監視")
+    # layout.prop(ttsConfig, "isObserverRunning",text="フォルダ監視")
+    layout.operator(TTSTOSEQUENCER_OT_observer.bl_idname,depress=ttsConfig.isObserverRunning)
+    # print(observer.folder)
+    # print(observer.isrecursive)
+    # observer.watchFolder = ttsConfig.folder
     layout.separator()
     for library in scene.libraryConfigs:
       col=layout.column()
@@ -32,7 +37,9 @@ class TTSToSequencer_PT_UiPanel(bpy.types.Panel):
         col.prop(subtitle,"position")
         pass
       removeButton = col.operator("ttstosequencer.remove_library_config")
-      removeButton.index = index=scene.libraryConfigs.find(library.name)
+      removeButton.index = scene.libraryConfigs.find(library.name)
+      # pattern = observer.watchRegexList.add()
+      # print(pattern)
       col.separator()
 
     layout.operator("ttstosequencer.add_library_config")

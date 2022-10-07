@@ -1,15 +1,17 @@
-from  watchdog.events import RegexMatchingEventHandler
-from bpy.types import Context
-from ..operators.add_sound_to_sequence import addSoundToScene
-
-class ttsFileCreatedEventHandler(RegexMatchingEventHandler):
+import bpy
+from  watchdog.events import PatternMatchingEventHandler
+from ..operators.add_sound_to_sequence import addSoundToScene,getFileExtension
+class ttsFileCreatedEventHandler(PatternMatchingEventHandler):
   # クラス初期化
-  def __init__(self, regexes):
-    super(ttsFileCreatedEventHandler, self).__init__(regexes=regexes,ignore_directories=True)
+  def __init__(self, patterns):
+    super(ttsFileCreatedEventHandler, self).__init__(patterns=patterns,ignore_patterns=["orig*.*"],ignore_directories=True)
 
   def on_modified(self,event):
     # 音声は(書き込みが後なので)onModifiedで処理
-    print("on_modified detected")
+    print("on_modified detected" + event.src_path)
     # print(event)
-    soundEffect = addSoundToScene(Context, event.src_path, 5)
-    # print(event.src_path)
+    if getFileExtension(event.src_path) ==".wav":
+      soundEffect = addSoundToScene(bpy.context, event.src_path)
+    elif getFileExtension(event.src_path) == ".txt":
+      # txtの場合、同名の.wavファイルがあったら字幕を追加する
+      pass
