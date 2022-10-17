@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RM.Friendly.WPFStandardControls.4.0</name>
+    </assembly>
+    <members>
+        <member name="T:RM.Friendly.WPFStandardControls.CompileNeedAssembly4">
+            <summary>
+            Need Compile Assemblys.
+            For TestAssistant plugin.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.CompileNeedAssembly4.GetAssemblies">
+            <summary>
+            Get Assemblys.
+            </summary>
+            <returns>Assemblys.</returns>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFStandardControls_4">
+            <summary>
+            Initialize RM.Friendly.WPFStandardControls.4.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFStandardControls_4.Injection(Codeer.Friendly.Windows.WindowsAppFriend)">
+            <summary>
+            Install RM.Friendly.WPFStandardControls.4.dll to target process.
+            </summary>
+            <param name="app">Application manipulation object.</param>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.Inside.ResourcesLocal4">
+            <summary>
+            ローカライズ済みリソース。
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.Inside.ResourcesLocal4.Initialize(Codeer.Friendly.Windows.WindowsAppFriend)">
+            <summary>
+            初期化。
+            </summary>
+            <param name="app">アプリケーション操作クラス。</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.Inside.ResourcesLocal4.Initialize">
+            <summary>
+            コンストラクタ。
+            </summary>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.Culture">
+            <summary>
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.DataGridErrorHasNotTextProperty">
+            <summary>
+              The cell does not have Text property. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.DataGridErrorNotCheckBoxCell">
+            <summary>
+              The cell is not a CheckBox. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.DataGridErrorNotComboBoxCell">
+            <summary>
+              The cell is not a ComboBox. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.DataGridErrorNotSupportedItems">
+            <summary>
+              When there are a target item and other equivalent items, this operation cannot be performed correctly. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.Properties.Resources.DataGridErrorNotTextBoxCell">
+            <summary>
+              The cell is not a TextBox. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFCalendar">
+            <summary>
+            Provides operations on controls of type System.Windows.Controls.Calendar.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFCalendar.#ctor(Codeer.Friendly.AppVar)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="appVar">Application variable object for the control.</param>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFCalendar.SelectedDate">
+            <summary>
+            Gets selected date.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFCalendar.EmulateChangeDate(System.Nullable{System.DateTime})">
+            <summary>
+            Sets selected date.
+            </summary>
+            <param name="date">date.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFCalendar.EmulateChangeDate(System.Nullable{System.DateTime},Codeer.Friendly.Async)">
+            <summary>
+            Sets selected date.
+            Executes asynchronously. 
+            </summary>
+            <param name="date">date.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFControlBase4`1">
+            <summary>
+            This is the base class for classes that operate on basic controls in .Net4.0 System.Windows.Controls.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFControlBase4`1.#ctor(Codeer.Friendly.AppVar)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="appVar">Application variable object for the control.</param>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFDataGrid">
+            <summary>
+            Provides operations on controls of type System.Windows.Controls.DataGrid.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.#ctor(Codeer.Friendly.AppVar)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="appVar">Application variable object for the control.</param>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGrid.Item(System.Int32)">
+            <summary>
+            Get Item.
+            </summary>
+            <param name="index">Index.</param>
+            <returns>Item.</returns>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGrid.CurrentCell">
+            <summary>
+            current selected cell.
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGrid.CurrentItemIndex">
+            <summary>
+            Item index of current selected cell.
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGrid.CurrentColIndex">
+            <summary>
+            Column index of current selected cell.
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGrid.ItemCount">
+            <summary>
+            Item count.
+            </summary>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGrid.ColCount">
+            <summary>
+            Column count.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateChangeCurrentCell(System.Int32,System.Int32)">
+            <summary>
+            Changes the cell selected state of cells.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateChangeCurrentCell(System.Int32,System.Int32,Codeer.Friendly.Async)">
+            <summary>
+            Changes the cell selected state of cells.
+            Executes asynchronously. 
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateCellCheck(System.Int32,System.Int32,System.Nullable{System.Boolean})">
+            <summary>
+            Sets the checked state state of a cell.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="isChecked">Checked state to use.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateCellCheck(System.Int32,System.Int32,System.Nullable{System.Boolean},Codeer.Friendly.Async)">
+            <summary>
+            Sets the checked state state of a cell.
+            Executes asynchronously. 
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="isChecked">Checked state to use.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateChangeCellText(System.Int32,System.Int32,System.String)">
+            <summary>
+            Modifies the text of a cell.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="text">The text to use.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateChangeCellText(System.Int32,System.Int32,System.String,Codeer.Friendly.Async)">
+            <summary>
+            Modifies the text of a cell.
+            Executes asynchronously. 
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="text">The text to use.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateChangeCellComboSelect(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the selected value of a combo box cell.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="index">The index to select.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateChangeCellComboSelect(System.Int32,System.Int32,System.Int32,Codeer.Friendly.Async)">
+            <summary>
+            Sets the selected value of a combo box cell.
+            Executes asynchronously. 
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <param name="index">The index to select.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.GetCellText(System.Int32,System.Int32)">
+            <summary>
+            Get cell text.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.GetRow(System.Int32)">
+            <summary>
+            Get row.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <returns>DataGridRow in target app.</returns>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.GetCell(System.Int32,System.Int32)">
+            <summary>
+            Get cell.
+            </summary>
+            <param name="itemIndex">Item index of the cell.</param>
+            <param name="col">Column number of the cell.</param>
+            <returns>DataGridCell in target app.</returns>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateBeginEdit">
+            <summary>
+            Begin edit.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateCommitEdit">
+            <summary>
+            Commit edit.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGrid.EmulateCommitEdit(Codeer.Friendly.Async)">
+            <summary>
+            Commit edit.
+            </summary>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFDataGridCell">
+            <summary>
+            Provides operations on controls of type System.Windows.Controls.DataGridCell.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCell.#ctor(Codeer.Friendly.AppVar)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="appVar">Application variable object for the control.</param>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGridCell.IsSelected">
+            <summary>
+            Get selection state.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCell.EmulateChangeSelected(System.Boolean)">
+            <summary>
+            Change Selected.
+            </summary>
+            <param name="isSelected">Item's selection state.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCell.EmulateChangeSelected(System.Boolean,Codeer.Friendly.Async)">
+            <summary>
+            Change Selected.
+            Executes asynchronously. 
+            </summary>
+            <param name="isSelected">Item's selection state.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCell.GetArguments">
+            <summary>
+            Get arguments.
+            </summary>
+            <returns>Arguments.</returns>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCell.GetArgumentsCode">
+            <summary>
+            Get arguments code.
+            </summary>
+            <returns>Arguments code.</returns>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFDataGridCellExtensions">
+            <summary>
+            Extension method for WPFDataGridCell.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCellExtensions.AttachTextBox(RM.Friendly.WPFStandardControls.WPFDataGridCell)">
+            <summary>
+            Get the TextBox from the cell of the DataGridTextColumn.
+            </summary>
+            <param name="cell">Cell.</param>
+            <returns>WPFTextBox</returns>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCellExtensions.AttachComboBox(RM.Friendly.WPFStandardControls.WPFDataGridCell)">
+            <summary>
+            Get the ComboBox from the cell of the DataGridComboBoxColumn.
+            </summary>
+            <param name="cell">Cell.</param>
+            <returns>WPFComboBox</returns>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCellExtensions.AttachCheckBox(RM.Friendly.WPFStandardControls.WPFDataGridCell)">
+            <summary>
+            Get the CheckBox from the cell of the DataGridCheckBoxColumn.
+            </summary>
+            <param name="cell">Cell.</param>
+            <returns>WPFToggleButton</returns>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridCellExtensions.AttachHyperlink(RM.Friendly.WPFStandardControls.WPFDataGridCell)">
+            <summary>
+            Get the Hyperlink from the cell of the  DataGridHyperLinkColumn.
+            </summary>
+            <param name="cell">Cell.</param>
+            <returns>WPFHyperlink</returns>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFDataGridRow">
+            <summary>
+            Provides operations on controls of type System.Windows.Controls.DataGridRow.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridRow.#ctor(Codeer.Friendly.AppVar)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="appVar">Application variable object for the control.</param>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDataGridRow.IsSelected">
+            <summary>
+            Get selection state.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridRow.EmulateChangeSelected(System.Boolean)">
+            <summary>
+            Change Selected.
+            </summary>
+            <param name="isSelected">Item's selection state.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDataGridRow.EmulateChangeSelected(System.Boolean,Codeer.Friendly.Async)">
+            <summary>
+            Change Selected.
+            Executes asynchronously. 
+            </summary>
+            <param name="isSelected">Item's selection state.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+        <member name="T:RM.Friendly.WPFStandardControls.WPFDatePicker">
+            <summary>
+            Provides operations on controls of type System.Windows.Forms.DateTimePicker.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDatePicker.#ctor(Codeer.Friendly.AppVar)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="appVar">Application variable object for the control.</param>
+        </member>
+        <member name="P:RM.Friendly.WPFStandardControls.WPFDatePicker.SelectedDate">
+            <summary>
+            Get current selected DateTime.
+            </summary>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDatePicker.EmulateChangeDate(System.DateTime)">
+            <summary>
+            Set current selected DateTime.
+            </summary>
+            <param name="datetime">DateTime.</param>
+        </member>
+        <member name="M:RM.Friendly.WPFStandardControls.WPFDatePicker.EmulateChangeDate(System.DateTime,Codeer.Friendly.Async)">
+            <summary>
+            Set current selected DateTime.
+            Executes asynchronously. 
+            </summary>
+            <param name="datetime">DateTime.</param>
+            <param name="async">Asynchronous execution.</param>
+        </member>
+    </members>
+</doc>
