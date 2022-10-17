@@ -46,7 +46,6 @@ def unregister():
             module.unregister()
 
 def reload():
-    global modules
     for mod in modules:
         # print("reloading"+ str(mod))
         importlib.reload(mod)

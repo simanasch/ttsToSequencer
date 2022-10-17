@@ -39,11 +39,13 @@ if "bpy" in locals():
 import bpy
 try:
   import watchdog
+  import clr
 except ModuleNotFoundError:
   # watchdogがインストールされていない場合、インストールを行う
   print("watchdog not installed, installing...")
   import sys,subprocess
   subprocess.call([sys.executable, '-m','pip', 'install', 'watchdog' ])
+  subprocess.call([sys.executable, '-m','pip', 'install', 'clr' ])
 except Exception as e:
   # subprocessが落ちたらエラー出力
   import logging

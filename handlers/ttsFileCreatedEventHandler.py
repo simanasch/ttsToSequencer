@@ -16,4 +16,3 @@ class ttsFileCreatedEventHandler(PatternMatchingEventHandler):
     elif getFileExtension(event.src_path) == ".txt":
       # txtの場合、同名の.wavファイルがあったら字幕を追加する
       addSubtitleToScene(bpy.context, event.src_path)
-      pass
