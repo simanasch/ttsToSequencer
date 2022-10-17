@@ -1,12 +1,7 @@
 from os import path
 from bpy.props import StringProperty,IntProperty
 from bpy.types import Operator
-
-def getFileName(filePath):
-  return path.splitext( path.basename(filePath))[0]
-
-def getFileExtension(filePath):
-  return path.splitext( path.basename(filePath))[1]
+from ..util.path import getFileExtension, getFileName
 
 def addSoundToScene(context, filePath):
   fileName=getFileName(filePath)

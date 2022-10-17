@@ -1,6 +1,6 @@
 import bpy
 from  watchdog.events import PatternMatchingEventHandler
-from ..operators.add_sound_to_sequence import addSoundToScene,getFileExtension
+from ..util.path import addSoundToScene,getFileExtension
 from ..operators.add_subtitle_to_sequence import addSubtitleToScene
 class ttsFileCreatedEventHandler(PatternMatchingEventHandler):
   # クラス初期化
