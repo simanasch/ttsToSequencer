@@ -8,6 +8,8 @@ class libraryConfig(PropertyGroup):
   bl_label="libraryConfig"
 
   fileNamePattern:StringProperty()
+  engineName: StringProperty()
+  libraryName: StringProperty()
   channel:IntProperty(default=0)
   hasSubtitle:BoolProperty()
   

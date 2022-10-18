@@ -1,0 +1,40 @@
+import bpy
+from ..operators.reload_active_libraries import TTSTOSEQUENCER_OT_ReloadAvailableTts
+
+# やること:シーケンサの画面のサイドバー上でフォルダ監視の切り替え、
+# Listで音声入力の設定をできるようにする
+class TTSToSequencer_PT_Config(bpy.types.Panel):
+  """tts To SequencerのUI"""
+  bl_idName = "ttstosequencer.TTS_PT_Config"
+  bl_label= "ttsToSequencer Config"
+  bl_space_type="SEQUENCE_EDITOR"
+  bl_region_type="UI"
+  bl_category="tts"
+  bl_label="tts設定"
+
+  def draw(self,context):
+    layout = self.layout
+    ttsConfig = context.scene.ttsConfig
+    scene = context.scene
+    layout.operator(TTSTOSEQUENCER_OT_ReloadAvailableTts.bl_idname,text="tts一覧更新")
+    layout.prop(ttsConfig, "folder",text="音声保存先フォルダ")
+    layout.separator()
+    library = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
+    # for library in scene.libraryConfigs:
+    col=layout.column()
+    col.alignment='RIGHT'
+    engine_row = col.row()
+    engine_row.label(text = "ttsエンジン名:")
+    engine_row.label(text = library.engineName)
+    label_row = col.row()
+    label_row.label(text="プリセット名:")
+    label_row.label(text = library.libraryName)
+    # col.prop(library,"engineName",text="エンジン名")
+    col.prop(library,"channel",text="音声追加先チャンネル")
+    col.prop(library,"hasSubtitle",text="字幕設定")
+    if library.hasSubtitle:
+      subtitle=library.subtitleConfig
+      col.prop(subtitle,"font")
+      col.prop(subtitle,"size")
+      col.prop(subtitle,"color")
+      col.prop(subtitle,"position")
