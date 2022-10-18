@@ -10,6 +10,5 @@ class ttsConfig(PropertyGroup):
 
   # channel:IntProperty(default=0)
   folder:StringProperty(subtype="DIR_PATH")
-  isObserverRunning:BoolProperty()
   selectedLibraryIndex:IntProperty(default=0)
   text:StringProperty()

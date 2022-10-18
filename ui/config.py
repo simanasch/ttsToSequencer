@@ -1,5 +1,6 @@
 import bpy
 from ..operators.reload_active_libraries import TTSTOSEQUENCER_OT_ReloadAvailableTts
+from .tts_library import TTSToSequencer_MT_TtsLibrary
 
 # やること:シーケンサの画面のサイドバー上でフォルダ監視の切り替え、
 # Listで音声入力の設定をできるようにする
@@ -18,6 +19,7 @@ class TTSToSequencer_PT_Config(bpy.types.Panel):
     scene = context.scene
     layout.operator(TTSTOSEQUENCER_OT_ReloadAvailableTts.bl_idname,text="tts一覧更新")
     layout.prop(ttsConfig, "folder",text="音声保存先フォルダ")
+    layout.menu(TTSToSequencer_MT_TtsLibrary.bl_idname,text="ライブラリ選択")
     layout.separator()
     library = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
     # for library in scene.libraryConfigs:
