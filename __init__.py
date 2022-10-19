@@ -38,13 +38,11 @@ if "bpy" in locals():
 
 import bpy
 try:
-  # import watchdog
   import clr
 except ModuleNotFoundError:
   # watchdogがインストールされていない場合、インストールを行う
   print("clr not installed, installing...")
   import sys,subprocess
-  # subprocess.call([sys.executable, '-m','pip', 'install', 'watchdog' ])
   subprocess.call([sys.executable, '-m','pip', 'install', 'clr' ])
 except Exception as e:
   # subprocessが落ちたらエラー出力
@@ -62,6 +60,8 @@ def register():
   from .classes.libraryConfig import libraryConfig
   bpy.types.Scene.ttsConfig = bpy.props.PointerProperty(type=ttsConfig)
   bpy.types.Scene.libraryConfigs = bpy.props.CollectionProperty(type=libraryConfig)
+  # アドオン登録時に音声合成エンジンの一覧を更新する
+  bpy.ops.ttstosequencer.reload_available_tts()
 
 
 #

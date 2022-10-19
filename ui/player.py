@@ -1,5 +1,6 @@
 import bpy
 from ..operators.player import TTSTOSEQUENCER_OT_Player
+from ..operators.recorder import TTSTOSEQUENCER_OT_Recorder
 
 # やること:シーケンサの画面のサイドバー上でフォルダ監視の切り替え、
 # Listで音声入力の設定をできるようにする
@@ -21,9 +22,14 @@ class TTSToSequencer_PT_Player(bpy.types.Panel):
     layout.label(text='再生/録音するテキスト')
     layout.prop(scene.ttsConfig, "text",text="")
     layout.separator()
-    ot = layout.operator(TTSTOSEQUENCER_OT_Player.bl_idname,text="音声を再生")
+    row = layout.row()
+    ot = row.operator(TTSTOSEQUENCER_OT_Player.bl_idname,text="音声を再生")
     ot.text = scene.ttsConfig.text
     ot.library = library.libraryName
     ot.engine  = library.engineName
+    record = row.operator(TTSTOSEQUENCER_OT_Recorder.bl_idname,text="音声を録音")
+    record.text = scene.ttsConfig.text
+    record.library = library.libraryName
+    record.engine  = library.engineName
     # layout.prop_with_menu(scene,"libraryConfigs",text="ライブラリ選択")
     # layout.prop_with_menu(scene,"libraryConfigs",text="ライブラリ選択")

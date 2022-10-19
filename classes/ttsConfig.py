@@ -1,6 +1,6 @@
 from email.policy import default
-from bpy.types import PropertyGroup, TextSequence
-from bpy.props import BoolProperty, PointerProperty, StringProperty, FloatProperty, IntProperty
+from bpy.types import PropertyGroup
+from bpy.props import StringProperty, IntProperty
 # from .subtitleConfig import subtitleConfig
 
 class ttsConfig(PropertyGroup):

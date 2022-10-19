@@ -1,6 +1,6 @@
 import clr
 clr.AddReference("E:/Documents/scripts/addons/ttsToSequencer/bin/Speech.dll")
-from Speech import SpeechController
+from Speech import SpeechController,SoundRecorder
 
 print( SpeechController)
 # SpeechControllerでやること
@@ -20,3 +20,29 @@ def play(library, text, engine=None):
     ttsEngine.Activate()
     ttsEngine.Finished += lambda s,a :ttsEngine.Dispose()
     ttsEngine.Play(text)
+
+recorder = None
+
+def record(library, text, outputPath, engine=None):
+  ttsEngine = None
+  if engine is not None:
+    ttsEngine = SpeechController.GetInstance(library, engine)
+  else:
+    ttsEngine = SpeechController.GetInstance(library)
+  if ttsEngine is not None:
+    print(str(ttsEngine))
+    global recorder
+    recorder = SoundRecorder(outputPath)
+    recorder.PostWait = 300
+    ttsEngine.Activate()
+    # finishedの処理内でこっちのコンテキストにあるrecorder.stop()を呼びたい
+    # ttsEngine.disposeはsに自身のインスタンスがあるのでできそう
+    ttsEngine.Finished += onRecordFinish
+    recorder.Start()
+    ttsEngine.Play(text)
+
+def onRecordFinish(s,a):
+  global recorder
+  if recorder is not None:
+    recorder.Stop().Wait()
+  s.Dispose()
