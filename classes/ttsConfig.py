@@ -12,3 +12,4 @@ class ttsConfig(PropertyGroup):
   folder:StringProperty(subtype="DIR_PATH")
   selectedLibraryIndex:IntProperty(default=0)
   text:StringProperty()
+  wavPath: StringProperty()

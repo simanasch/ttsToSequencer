@@ -10,7 +10,7 @@ class libraryConfig(PropertyGroup):
   fileNamePattern:StringProperty()
   engineName: StringProperty()
   libraryName: StringProperty()
-  channel:IntProperty(default=0)
+  channel:IntProperty(default=1, min=1)
   hasSubtitle:BoolProperty()
   
   subtitleConfig: PointerProperty(type=subtitleConfig,name="字幕設定")

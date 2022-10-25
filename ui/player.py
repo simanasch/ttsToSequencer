@@ -31,5 +31,3 @@ class TTSToSequencer_PT_Player(bpy.types.Panel):
     record.text = scene.ttsConfig.text
     record.library = library.libraryName
     record.engine  = library.engineName
-    # layout.prop_with_menu(scene,"libraryConfigs",text="ライブラリ選択")
-    # layout.prop_with_menu(scene,"libraryConfigs",text="ライブラリ選択")

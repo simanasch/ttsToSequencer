@@ -1,3 +1,4 @@
+import bpy
 from os import path
 from bpy.props import StringProperty,IntProperty
 from bpy.types import Operator
@@ -11,7 +12,7 @@ def getFileName(libraryName):
 class TTSTOSEQUENCER_OT_Recorder(Operator):
   """入力テキストを録音する"""
   bl_idname="ttstosequencer.recorder"
-  bl_label="音声を録音"
+  bl_label="録音&シーケンサ追加"
   bl_options = {'REGISTER', 'UNDO'}
 
   text:StringProperty(options={"HIDDEN"})
@@ -22,5 +23,8 @@ class TTSTOSEQUENCER_OT_Recorder(Operator):
     ttsConfig = context.scene.ttsConfig
     if  not ttsConfig.folder:
       ttsConfig.folder = getProjectPath()
-    record(self.library,self.text,path.join(ttsConfig.folder, getFileName(self.library)) , self.engine )
+    ttsConfig.wavPath = getFileName(self.library)
+    record(self.library,self.text,path.join(ttsConfig.folder, ttsConfig.wavPath) , self.engine )
+    # やること
+    # 録音側のhandler→bp
     return {'FINISHED'}

@@ -61,7 +61,7 @@ def register():
   bpy.types.Scene.ttsConfig = bpy.props.PointerProperty(type=ttsConfig)
   bpy.types.Scene.libraryConfigs = bpy.props.CollectionProperty(type=libraryConfig)
   # アドオン登録時に音声合成エンジンの一覧を更新する
-  bpy.ops.ttstosequencer.reload_available_tts()
+  # bpy.ops.ttstosequencer.reload_available_tts()
 
 
 #
