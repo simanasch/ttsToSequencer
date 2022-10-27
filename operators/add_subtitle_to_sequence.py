@@ -1,7 +1,7 @@
 from bpy.types import Operator
 from bpy.props import StringProperty, PointerProperty
 from ..classes.subtitleConfig import subtitleConfig
-from .add_sound_to_sequence import getFileName
+from ..util.path import getFileName
 
 defaultSeparator="＞"
 

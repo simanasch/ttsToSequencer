@@ -35,8 +35,6 @@ def record(library, text, outputPath, engine=None):
     recorder = SoundRecorder(outputPath)
     recorder.PostWait = 300
     ttsEngine.Activate()
-    # finishedの処理内でこっちのコンテキストにあるrecorder.stop()を呼びたい
-    # ttsEngine.disposeはsに自身のインスタンスがあるのでできそう
     ttsEngine.Finished += onRecordFinish
     recorder.Start()
     ttsEngine.Play(text)

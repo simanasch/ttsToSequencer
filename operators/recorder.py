@@ -24,7 +24,7 @@ class TTSTOSEQUENCER_OT_Recorder(Operator):
     if  not ttsConfig.folder:
       ttsConfig.folder = getProjectPath()
     ttsConfig.wavPath = getFileName(self.library)
-    record(self.library,self.text,path.join(ttsConfig.folder, ttsConfig.wavPath) , self.engine )
+    record(self.library,self.text,path.join(bpy.path.abspath(ttsConfig.folder), ttsConfig.wavPath) , self.engine )
     # やること
     # 録音側のhandler→bp
     return {'FINISHED'}
