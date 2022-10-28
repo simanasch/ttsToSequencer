@@ -10,7 +10,7 @@ def getLibraries():
 
 ttsEngine = None
 # SoundPlayerでやること
-# ファイル名を渡してPlayを呼ぶ
+# ライブラリ名を渡してPlayを呼ぶ
 def play(library, text, engine=None):
   global ttsEngine
   if engine is not None:
@@ -42,8 +42,6 @@ def record(library, text, outputPath, engine=None):
 def onRecordFinish(s,a):
   global ttsEngine
   global recorder
-  # print("onRecordFinish")
-  # print(str(ttsEngine))
   if recorder is not None:
     recorder.Stop().Wait()
   addSoundToSequence()

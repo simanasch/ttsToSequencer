@@ -1,3 +1,4 @@
+import bpy
 from bpy.types import Operator
 from bpy.props import StringProperty, PointerProperty
 from ..classes.subtitleConfig import subtitleConfig
@@ -5,27 +6,16 @@ from ..util.path import getFileName
 
 defaultSeparator="＞"
 
-def addSubtitleToScene(context,filePath):
-  fileName=getFileName(filePath)
-  print("text File Path:"+filePath)
-  textEffect=None
-  for config in context.scene.libraryConfigs:
-    if fileName.startswith(config.name) & config.hasSubtitle:
-      soundSeq = None
-      for seq in [seq for seq in context.scene.sequence_editor.sequences if seq.type=="SOUND"]:
-        if (getFileName(seq.sound.filepath) == fileName):
-          soundSeq = seq
-
-      if soundSeq != None:
-        # 既にサウンド作成済みの場合に字幕を追加する
-        with open(filePath, encoding="shift_jis") as f:
-          s=f.read()
-          print(s)
-          textEffect = context.scene.sequence_editor.sequences.new_effect(s, type="TEXT",channel=config.channel+1,frame_start=soundSeq.frame_start,frame_end=soundSeq.frame_final_end)
-          textEffect.text=s.split(defaultSeparator)[-1]
-          textEffect.location[1]=0.2
-          textEffect.use_box=True
-          textEffect.box_color=(0.2,0.2,0.2,0.3)
+def addSubtitleToScene(scene,text, soundEffect):
+  activeLibrary = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
+  soundSeq = soundEffect
+  # 既にサウンド作成済みの場合に字幕を追加する
+  textEffect = scene.sequence_editor.sequences.new_effect(text, type="TEXT",channel=activeLibrary.channel+1,frame_start=soundSeq.frame_start,frame_end=soundSeq.frame_final_end)
+  textEffect.font = bpy.data.fonts[activeLibrary.fontName]
+  textEffect.text=text
+  textEffect.location[1]=0.2
+  textEffect.use_box=True
+  textEffect.box_color=(0.2,0.2,0.2,0.3)
   return textEffect
 
 class TTSTOSEQUENCER_OT_AddSubtitleToSequence(Operator):

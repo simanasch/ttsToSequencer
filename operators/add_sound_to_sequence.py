@@ -2,6 +2,7 @@ from os import path
 import bpy
 from bpy.props import StringProperty,IntProperty
 from bpy.types import Operator
+from .add_subtitle_to_sequence import addSubtitleToScene
 from ..util.path import getFileExtension, getFileName
 
 def addSoundToSequence():
@@ -10,12 +11,15 @@ def addSoundToSequence():
   currentFrame = scene.frame_current
   activeLibrary = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
 
-  result = scene.sequence_editor.sequences.new_sound(getFileName(ttsConfig.wavPath) ,filepath=path.join(bpy.path.abspath(ttsConfig.folder), ttsConfig.wavPath), frame_start=currentFrame, channel=activeLibrary.channel)
-  scene.frame_current = result.frame_final_end
+  soundSequence = scene.sequence_editor.sequences.new_sound(getFileName(ttsConfig.wavPath) ,filepath=path.join(bpy.path.abspath(ttsConfig.folder), ttsConfig.wavPath), frame_start=currentFrame, channel=activeLibrary.channel)
+  scene.frame_current = soundSequence.frame_final_end
   # TODO:追加した音声内容をblendファイル内のテキストに追加する
   # 追加処理色々が終わったらttsConfigとかの値をクリアする
+  if activeLibrary.hasSubtitle:
+    addSubtitleToScene(scene, ttsConfig.text, soundSequence)
   ttsConfig.text = ''
   ttsConfig.wavPath = ''
+  return soundSequence
 
 class TTSTOSEQUENCER_OT_AddSoundToSequence(Operator):
   """サウンドをシーケンサに追加する"""
@@ -27,7 +31,5 @@ class TTSTOSEQUENCER_OT_AddSoundToSequence(Operator):
   channel:IntProperty()
 
   def execute(self, context):
-    # soundEffect = addSoundToScene(context, self.filePath, self.channel)
-    # 音声追加後、追加した音声の終了フレームにカーソル移動する
-    # context.scene.frame_current = soundEffect.frame_final_end
+    soundEffect = addSoundToSequence()
     return {'FINISHED'}
