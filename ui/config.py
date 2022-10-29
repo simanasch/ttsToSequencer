@@ -18,7 +18,6 @@ class TTSToSequencer_PT_Config(bpy.types.Panel):
     ttsConfig = context.scene.ttsConfig
     scene = context.scene
     layout.operator(TTSTOSEQUENCER_OT_ReloadAvailableTts.bl_idname,text="tts一覧更新")
-    layout.operator('font.open')
     layout.prop(ttsConfig, "folder",text="音声保存先フォルダ")
     layout.menu(TTSToSequencer_MT_TtsLibrary.bl_idname,text="ライブラリ選択")
     layout.separator()
@@ -37,7 +36,8 @@ class TTSToSequencer_PT_Config(bpy.types.Panel):
     col.prop(library,"hasSubtitle",text="字幕設定")
     if library.hasSubtitle:
       subtitle=library.subtitleConfig
-      col.prop(library, "fontName", text="字幕のフォント")
+      col.operator('font.open') 
+      col.prop(subtitle, "fontName", text="字幕のフォント")
       col.prop(subtitle,"size")
       col.prop(subtitle,"color")
       col.prop(subtitle,"position")

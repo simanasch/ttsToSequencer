@@ -8,14 +8,17 @@ defaultSeparator="＞"
 
 def addSubtitleToScene(scene,text, soundEffect):
   activeLibrary = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
+  subtitleConfig = activeLibrary.subtitleConfig
   soundSeq = soundEffect
   # 既にサウンド作成済みの場合に字幕を追加する
   textEffect = scene.sequence_editor.sequences.new_effect(text, type="TEXT",channel=activeLibrary.channel+1,frame_start=soundSeq.frame_start,frame_end=soundSeq.frame_final_end)
-  textEffect.font = bpy.data.fonts[activeLibrary.fontName]
+  textEffect.font = bpy.data.fonts[subtitleConfig.fontName]
   textEffect.text=text
-  textEffect.location[1]=0.2
+  textEffect.font_size = subtitleConfig.size
+  textEffect.location = subtitleConfig.position
   textEffect.use_box=True
-  textEffect.box_color=(0.2,0.2,0.2,0.3)
+  print(textEffect.color)
+  textEffect.color=subtitleConfig.color
   return textEffect
 
 class TTSTOSEQUENCER_OT_AddSubtitleToSequence(Operator):
