@@ -29,8 +29,8 @@ class subtitleConfig(PropertyGroup):
     return intern_enum_items(result)
   
   fontName: EnumProperty(items=getFontList)
-  size:IntProperty()
+  size:IntProperty(default=50,min=1,max=120)
   # フォント色
-  color:FloatVectorProperty(subtype="COLOR",size=4)
+  color:FloatVectorProperty(subtype="COLOR_GAMMA",size=4, default=(0.5,0.5,0.5,1.0),min=0.0,max=1.0)
   # 位置
-  position:FloatVectorProperty(size=2)
+  position:FloatVectorProperty(size=2,min=0.0,max=1.0)

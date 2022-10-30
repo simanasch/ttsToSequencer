@@ -38,6 +38,6 @@ class TTSToSequencer_PT_Config(bpy.types.Panel):
       subtitle=library.subtitleConfig
       col.operator('font.open') 
       col.prop(subtitle, "fontName", text="字幕のフォント")
-      col.prop(subtitle,"size")
-      col.prop(subtitle,"color")
-      col.prop(subtitle,"position")
+      col.prop(subtitle,"size", text="字幕のサイズ",slider=True)
+      col.prop(subtitle,"color", text="字幕の色", slider=True)
+      col.prop(subtitle,"position",text="表示位置")

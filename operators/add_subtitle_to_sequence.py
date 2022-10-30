@@ -16,8 +16,6 @@ def addSubtitleToScene(scene,text, soundEffect):
   textEffect.text=text
   textEffect.font_size = subtitleConfig.size
   textEffect.location = subtitleConfig.position
-  textEffect.use_box=True
-  print(textEffect.color)
   textEffect.color=subtitleConfig.color
   return textEffect
 
