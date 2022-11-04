@@ -1,6 +1,5 @@
-import bpy
-from bpy.types import PropertyGroup, TextSequence
-from bpy.props import BoolProperty, PointerProperty, StringProperty, IntProperty ,EnumProperty
+from bpy.types import PropertyGroup
+from bpy.props import BoolProperty, PointerProperty, StringProperty, IntProperty 
 from .subtitleConfig import subtitleConfig
 
 

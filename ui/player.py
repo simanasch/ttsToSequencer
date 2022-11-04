@@ -17,8 +17,6 @@ class TTSToSequencer_PT_Player(bpy.types.Panel):
     scene = context.scene
     library = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
     layout = self.layout
-    # for config in scene.libraryConfigs:
-    #   layout.prop_enum(scene.ttsConfig,"selectedLibrary", value=config.libraryName)
     layout.label(text='再生/録音するテキスト')
     layout.prop(scene.ttsConfig, "text",text="")
     layout.separator()

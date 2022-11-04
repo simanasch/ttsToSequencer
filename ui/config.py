@@ -20,9 +20,9 @@ class TTSToSequencer_PT_Config(bpy.types.Panel):
     layout.operator(TTSTOSEQUENCER_OT_ReloadAvailableTts.bl_idname,text="tts一覧更新")
     layout.prop(ttsConfig, "folder",text="音声保存先フォルダ")
     layout.menu(TTSToSequencer_MT_TtsLibrary.bl_idname,text="ライブラリ選択")
+    layout.prop(ttsConfig, "saveTextOnSave",text="録音内容をcsvに保存")
     layout.separator()
     library = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
-    # for library in scene.libraryConfigs
     col=layout.column()
     col.alignment='RIGHT'
     engine_row = col.row()
