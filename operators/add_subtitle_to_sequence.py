@@ -17,6 +17,10 @@ def addSubtitleToScene(scene,text, soundEffect):
   textEffect.font_size = subtitleConfig.size
   textEffect.location = subtitleConfig.position
   textEffect.color=subtitleConfig.color
+  textEffect.wrap_width = subtitleConfig.wrapWidth
+  textEffect.align_x = 'LEFT'
+  textEffect.align_y = 'TOP'
+
   return textEffect
 
 class TTSTOSEQUENCER_OT_AddSubtitleToSequence(Operator):
