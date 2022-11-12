@@ -28,7 +28,7 @@ def saveTtsText(scene, sound ):
   activeLibrary = scene.libraryConfigs[scene.ttsConfig.selectedLibraryIndex]
   csvName = getFileName(bpy.data.filepath) + '_ttsLog.csv'
   csvPath =  path.join(bpy.path.abspath(ttsConfig.folder), csvName)
-  with open(csvPath, 'w', encoding='utf-8') as f:
+  with open(csvPath, mode='a', encoding='utf-8') as f:
     if not path.exists(csvPath):
       f.write('シーン名,チャンネル,開始フレーム,エンジン名,ライブラリ名,テキスト,ファイルパス\n')
     if bpy.data.texts.get(csvName) is None:
